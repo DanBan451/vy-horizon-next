@@ -1,0 +1,85 @@
+.wrapper {
+  margin-bottom: clamp(100px, 10vw,  500px);  
+  height: 80vh;
+  background-color: #005aa8;
+  display: flex;
+}
+
+.carousel {     
+  /* height: auto;  */
+  padding-bottom: 50px;  
+  height: min-content;
+  margin: auto;
+}
+
+.carousel *  { 
+color: white;
+}
+
+.carousel .carouselItem {
+  height: 100%;
+}
+.carousel .item {
+  margin: auto;
+  text-align: center;
+  width: 50%; 
+  height: 100%; 
+}
+
+.carousel .item > img {
+  height: 200px;
+  border-radius: 50%;
+  margin: 20px 0;
+}
+.carousel .item span img {
+  margin-left: auto;
+  height: 25px;
+  margin: 20px 0;
+  display: inline;
+}
+
+@media (min-width: 500px) {
+  .carousel .item > img {
+    height: 250px;
+  }
+}
+
+
+
+
+
+
+/* .marqueeWrapper {
+  height: auto;
+  margin-bottom: 10vw;
+  width: 95%;
+  border: 1px solid rgb(208, 208, 208);
+  margin: auto;
+  margin-bottom: 10vw;
+  display: flex;
+}
+
+.itemWrapper {
+  width: 100vw;
+}
+.item {
+  height: 100%;
+  width: 100%;
+  max-width: 1000px;
+}
+.item .header div img {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.item img:last-of-type {
+  height: 70px;
+  width: auto;
+  margin: auto;
+}
+
+.item .header {
+  display: flex;
+}
+ */
