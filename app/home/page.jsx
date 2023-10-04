@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import $ from "jquery";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import { animateScroll as scroll } from "react-scroll";
 import { AnimationOnScroll } from "react-animation-on-scroll";
@@ -11,11 +12,12 @@ import Reviews from "../components/reviews/Reviews";
 import Loader from "../components/loader/Loader";
 import Contact from "../components/contact/Contact";
 import Footer from "../components/footer/Footer";
-
 import FastMarquee from "react-fast-marquee";
 
 import classes from "./home.module.css";
 import "animate.css/animate.min.css";
+import loadingClasses from "../components/loading/loading.module.css";
+
 import { GraphQLClient, gql } from "graphql-request";
 
 export default function Main() {
@@ -38,7 +40,15 @@ export default function Main() {
     Array(words.length).fill(false)
   );
 
-  useEffect(() => {
+  useEffect(() => {    
+    // router.beforePopState((state) => {
+    //   state.options.scroll = false;
+    //   return true;
+    // });
+    // window.onbeforeunload = function () {
+    //   window.scrollTo(0, 0);
+    // }
+
     let intialWords = [];
 
     const graphcms = new GraphQLClient(
@@ -91,10 +101,10 @@ export default function Main() {
     }
     fetchData();
 
-    scroll.scrollToTop({
-      smooth: true,
-      duration: 0,
-    });
+    // scroll.scrollToTop({
+    //   smooth: true,
+    //   duration: 0,
+    // });
     // After a delay, mark all elements as "first animation done"
     const timer = setTimeout(() => {
       setAnimationFlags(Array(intialWords.length).fill(true));
@@ -202,18 +212,20 @@ export default function Main() {
     };
   }, [streamIndex]);
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
+  // if (isLoading) {
+  //   return <div className={loadingClasses.loading} />;
+  // }
 
   // ------------------------------------------------------------ if loading of data is complete then render everythng else
 
   return (
-    <React.Fragment>
+    <div>
       <div className={`${classes.fixed} fixed`}></div>
       <div className={classes.wrapper}>
-        <div className={classes.header}>
-          {data.mainHeaderImage && (
+        {isLoading ? (
+          <div className={`${loadingClasses.loading} ${classes.header}`}></div>
+        ) : (
+          <div className={classes.header}>
             <Loader
               src={data.mainHeaderImage[3].url}
               small={data.mainHeaderImage[0].url}
@@ -221,73 +233,79 @@ export default function Main() {
               large={data.mainHeaderImage[2].url}
               classNameProp={classes.loaderHeaderImage}
             />
-          )}
-
-          <div className={classes.divider}>
-            {words.length ? (
-              <React.Fragment>
-                <h1>
-                  {`${data.mainHeaderText1} `}
-                  <br />
-                  <span>
-                    <h1
-                      style={{ margin: "0px", padding: "0px" }}
-                    >{`${data.mainHeaderText2}`}</h1>
-                  </span>
-                  <span className={classes["words-wrapper"]}>
-                    <span>Drayage</span>
-                    {words.map((word, i) => (
-                      <b
-                        className={`${
-                          index === i
-                            ? classes["is-visible"]
-                            : animationFlags[i]
-                            ? classes["is-hidden-subsequent"]
-                            : classes["is-hidden-first"]
-                        }`}
-                        onAnimationEnd={() => handleAnimationEnd(i)}
-                        key={i}
-                      >
-                        {word}
-                      </b>
-                    ))}
-                  </span>
-                  <br />
-                  {`${data.mainHeaderText3}`}
-                </h1>
-                <div>
-                  <Link className={`${classes.button}`} href={"/contact"}>
-                    Get a Quote!
-                  </Link>
-                  <Link className={`${classes.button}`} href={"/contact"}>
-                    Contact Us
-                  </Link>
-                </div>
-              </React.Fragment>
-            ) : (
-              <div />
-            )}
+            <div className={classes.divider}>
+              {words.length ? (
+                <React.Fragment>
+                  <h1>
+                    {`${data.mainHeaderText1} `}
+                    <br />
+                    <span>
+                      <h1
+                        style={{ margin: "0px", padding: "0px" }}
+                      >{`${data.mainHeaderText2}`}</h1>
+                    </span>
+                    <span className={classes["words-wrapper"]}>
+                      <span>Drayage</span>
+                      {words.map((word, i) => (
+                        <b
+                          className={`${
+                            index === i
+                              ? classes["is-visible"]
+                              : animationFlags[i]
+                              ? classes["is-hidden-subsequent"]
+                              : classes["is-hidden-first"]
+                          }`}
+                          onAnimationEnd={() => handleAnimationEnd(i)}
+                          key={i}
+                        >
+                          {word}
+                        </b>
+                      ))}
+                    </span>
+                    <br />
+                    {`${data.mainHeaderText3}`}
+                  </h1>
+                  <div>
+                    <Link className={`${classes.button}`} href={"/contact"}>
+                      Get a Quote!
+                    </Link>
+                    <Link className={`${classes.button}`} href={"/contact"}>
+                      Contact Us
+                    </Link>
+                  </div>
+                </React.Fragment>
+              ) : (
+                <div />
+              )}
+            </div>
+            <div className={classes.pulseWrapper}>
+              <Link href="/contact" className={classes.pulse}>
+                <h1>Let's Talk!</h1>
+              </Link>
+              <div
+                className={`${classes["circle"]} ${classes["circle-1"]}`}
+              ></div>
+              <div
+                className={`${classes["circle"]} ${classes["circle-2"]}`}
+              ></div>
+              <div
+                className={`${classes["circle"]} ${classes["circle-3"]}`}
+              ></div>
+            </div>
           </div>
-          <div className={classes.pulseWrapper}>
-            <Link href="/contact" className={classes.pulse}>
-              <h1>Let's Talk!</h1>
-            </Link>
-            <div
-              className={`${classes["circle"]} ${classes["circle-1"]}`}
-            ></div>
-            <div
-              className={`${classes["circle"]} ${classes["circle-2"]}`}
-            ></div>
-            <div
-              className={`${classes["circle"]} ${classes["circle-3"]}`}
-            ></div>
-          </div>
-        </div>
+        )}
 
         <FastMarquee className={classes.marqueeWrapper}>
-          {data.partnershipLogos.map((logo, id) => (
-            <img src={logo.url} alt="" key={`partnership-${id}`} />
-          ))}
+          {isLoading
+            ? Array.from({ length: 5 }, (num, id) => (
+                <div
+                  className={loadingClasses.loading}
+                  style={{ height: "100%", width: 300 }}
+                />
+              ))
+            : data.partnershipLogos.map((logo, id) => (
+                <img src={logo.url} alt="" key={`partnership-${id}`} />
+              ))}
         </FastMarquee>
 
         <div className={`${classes.service} ${classes.rev} service`}>
@@ -298,124 +316,169 @@ export default function Main() {
             />
           </div>
 
-          <Loader
-            src={data.section1Image[3].url}
-            small={data.section1Image[0].url}
-            medium={data.section1Image[1].url}
-            large={data.section1Image[2].url}
-            classNameProp={classes.serviceImage}
-          />
+          {isLoading ? (
+            <div
+              className={`${loadingClasses.loading} ${classes.serviceImage}`}
+              style={{ width: "100%" }}
+            />
+          ) : (
+            <Loader
+              src={data.section1Image[3].url}
+              small={data.section1Image[0].url}
+              medium={data.section1Image[1].url}
+              large={data.section1Image[2].url}
+              classNameProp={classes.serviceImage}
+            />
+          )}
 
-          <div className={classes.serviceContent}>
-            <h1>{data.section1Content[0]}</h1>
-            <span>{data.section1Content[1]}</span>
-            <Link className={`${classes.serviceBtn}`} href={"/services"}>
-              Learn more
-            </Link>
-          </div>
+          {isLoading ? (
+            <div
+              className={`${loadingClasses.loading} ${classes.serviceContent}`}
+            />
+          ) : (
+            <div className={classes.serviceContent}>
+              <h1>{data.section1Content[0]}</h1>
+              <span>{data.section1Content[1]}</span>
+              <Link className={`${classes.serviceBtn}`} href={"/services"}>
+                Learn more
+              </Link>
+            </div>
+          )}
         </div>
 
         <div className={`${classes.shippingService} shippingService`}>
-          <span>{data.section2Content[0]}</span>
-          <div className={`${classes.stream1} stream1`} />
-          <h1>{data.section2Content[1]}</h1>
-          <div className={`${classes.stream2} stream2`} />
-
-          <Loader
-            src={data.section2Image[3].url}
-            small={data.section2Image[0].url}
-            medium={data.section2Image[1].url}
-            large={data.section2Image[2].url}
-            classNameProp={classes.shippingImage}
-          />
-
-          <div className={`${classes.stream3} stream3`} />
-          <div style={{ height: "1px", width: "80%", margin: "-10px auto" }}>
+          {isLoading ? (
             <div
-              style={{
-                height: "0px",
-                borderBottomWidth: "0px",
-                borderTopWidth: "2px",
-              }}
-              className={`${classes.stream4} stream4`}
+              className={`${loadingClasses.loading} ${classes.shippingImage}`}
             />
-          </div>
-          <div className={classes.streamDivider}>
-            <div className={`${classes.stream5} stream5`} />
-            <div className={`${classes.stream6} stream6`} />
-            <div className={`${classes.stream7} stream7`} />
-          </div>
+          ) : (
+            <React.Fragment>
+              <span>{data.section2Content[0]}</span>
+              <div className={`${classes.stream1} stream1`} />
+              <h1>{data.section2Content[1]}</h1>
+              <div className={`${classes.stream2} stream2`} />
+
+              <Loader
+                src={data.section2Image[3].url}
+                small={data.section2Image[0].url}
+                medium={data.section2Image[1].url}
+                large={data.section2Image[2].url}
+                classNameProp={classes.shippingImage}
+              />
+              <div className={`${classes.stream3} stream3`} />
+              <div
+                style={{ height: "1px", width: "80%", margin: "-10px auto" }}
+              >
+                <div
+                  style={{
+                    height: "0px",
+                    borderBottomWidth: "0px",
+                    borderTopWidth: "2px",
+                  }}
+                  className={`${classes.stream4} stream4`}
+                />
+              </div>
+              <div className={classes.streamDivider}>
+                <div className={`${classes.stream5} stream5`} />
+                <div className={`${classes.stream6} stream6`} />
+                <div className={`${classes.stream7} stream7`} />
+              </div>
+            </React.Fragment>
+          )}
+
           <div className={classes.cards}>
-            <div className={`${classes.card}`}>
-              <h1>{data.section2Content[2]}</h1>
-              <p>{data.section2Content[3]}</p>
-              <Link className={`${classes.button}`} href={"/contact"}>
-                Learn more
-              </Link>
-            </div>
-            <div className={`${classes.card}`}>
-              <h1>{data.section2Content[4]}</h1>
-              <p>{data.section2Content[5]}</p>
-              <Link className={`${classes.button}`} href={"/services"}>
-                Learn more
-              </Link>
-            </div>
-            <div className={`${classes.card}`}>
-              <h1>{data.section2Content[6]}</h1>
-              <p>{data.section2Content[7]}</p>
-              <Link className={`${classes.button}`} href={"/services"}>
-                Learn more
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className={`${classes.streamSection} streamSection`}>
-          <div className={`${classes.stream1} stream1`} />
-        </div>
-        <div className={`${classes.about} about`} id="section1">
-          <span>{data.section3Content[0]}</span>
-          <div className={`${classes.stream1} stream1`} />
-          <h1>{data.section3Content[1]}</h1>
-          <div className={`${classes.stream2} stream2`} />
-          <span>{data.section3Content[2]}</span>
-        </div>
-        <div className={`${classes.streamSection2} streamSection2`}>
-          <div className={`${classes.stream1} stream1`} />
-        </div>
-        <AnimationOnScroll animateIn="animate__fadeIn">
-          <div className={classes.bottomHeader}>
-            <Loader
-              src={data.section4Image[3].url}
-              small={data.section4Image[0].url}
-              medium={data.section4Image[1].url}
-              large={data.section4Image[2].url}
-              classNameProp={classes.image}
-            />
-            <div className={classes.dividerWrapper}>
-              <div className={classes.divider}>
-                <span>{data.section4Content[0]}</span>
-                <div>
-                  <h1>{data.section4Content[1]}</h1>
-                  <span>
-                  {data.section4Content[2]}
-                  </span>
-                </div>
-                <Link className={`btn ${classes.button}`} href={"/careers"}>
-                  Join Our Team
+            {isLoading ? (
+              <div
+                className={`${loadingClasses.loading} ${classes.card}`}
+                style={{ height: 300 }}
+              />
+            ) : (
+              <div className={`${classes.card}`}>
+                <h1>{data.section2Content[2]}</h1>
+                <p>{data.section2Content[3]}</p>
+                <Link className={`${classes.button}`} href={"/contact"}>
+                  Learn more
                 </Link>
               </div>
-            </div>
+            )}
+            {isLoading ? (
+              <div className={`${loadingClasses.loading} ${classes.card}`} />
+            ) : (
+              <div className={`${classes.card}`}>
+                <h1>{data.section2Content[4]}</h1>
+                <p>{data.section2Content[5]}</p>
+                <Link className={`${classes.button}`} href={"/contact"}>
+                  Learn more
+                </Link>
+              </div>
+            )}
+            {isLoading ? (
+              <div className={`${loadingClasses.loading} ${classes.card}`} />
+            ) : (
+              <div className={`${classes.card}`}>
+                <h1>{data.section2Content[6]}</h1>
+                <p>{data.section2Content[7]}</p>
+                <Link className={`${classes.button}`} href={"/contact"}>
+                  Learn more
+                </Link>
+              </div>
+            )}
           </div>
-          <Reviews />
-        </AnimationOnScroll>
-        <AnimationOnScroll animateIn="animate__fadeIn">
-          <Contact />
-        </AnimationOnScroll>
+        </div>
 
-        <AnimationOnScroll animateIn="animate__fadeIn">
+        {isLoading ? (
+          <div
+            className={`${loadingClasses.loading}`}
+          />
+        ) : (
+          <React.Fragment>
+            <div className={`${classes.streamSection} streamSection`}>
+              <div className={`${classes.stream1} stream1`} />
+            </div>
+            <div className={`${classes.about} about`} id="section1">
+              <span>{data.section3Content[0]}</span>
+              <div className={`${classes.stream1} stream1`} />
+              <h1>{data.section3Content[1]}</h1>
+              <div className={`${classes.stream2} stream2`} />
+              <span>{data.section3Content[2]}</span>
+            </div>
+            <div className={`${classes.streamSection2} streamSection2`}>
+              <div className={`${classes.stream1} stream1`} />
+            </div>
+
+            <AnimationOnScroll animateIn="animate__fadeIn">
+              <div className={classes.bottomHeader}>
+                <Loader
+                  src={data.section4Image[3].url}
+                  small={data.section4Image[0].url}
+                  medium={data.section4Image[1].url}
+                  large={data.section4Image[2].url}
+                  classNameProp={classes.image}
+                />
+                <div className={classes.dividerWrapper}>
+                  <div className={classes.divider}>
+                    <span>{data.section4Content[0]}</span>
+                    <div>
+                      <h1>{data.section4Content[1]}</h1>
+                      <span>{data.section4Content[2]}</span>
+                    </div>
+                    <Link className={`btn ${classes.button}`} href={"/careers"}>
+                      Join Our Team
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <Reviews />
+            </AnimationOnScroll>
+            <AnimationOnScroll animateIn="animate__fadeIn">
+              <Contact />
+            </AnimationOnScroll>
+          </React.Fragment>
+        )}
+        {/* <AnimationOnScroll animateIn="animate__fadeIn">
           <Footer />
-        </AnimationOnScroll>
+        </AnimationOnScroll> */}
       </div>
-    </React.Fragment>
+    </div>
   );
 }

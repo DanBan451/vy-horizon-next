@@ -1,0 +1,388 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600&display=swap"); */
+
+/* h1, p {
+  font-family: 'Poppins', sans-serif;	
+} */
+
+
+.servicesWrapper h1 {
+  font-weight: 500;
+}
+
+.header {
+  height: 50vh;
+  width: 100vw;    
+  position: relative;
+}
+.header .image {
+  height: 100%;
+  width: 100%;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+.header h1 {
+  color: white;
+  margin: auto;
+  z-index: 4;
+  bottom: 0px;
+  position: absolute;
+  margin-bottom: 5vw;
+  margin-left: 5vw;
+}
+
+.scrollButton {
+  display: flex;
+  justify-content: center;
+  margin: clamp(50px, 5vw, 200px);  
+}
+
+@media only screen and (min-width: 930px) {
+  .header {
+    height: 60vh;
+  }
+  .header h1 {
+    margin-left: 10vw;
+    margin-bottom: 5vw;
+  }
+}
+@media only screen and (min-width: 1050px) {
+  .header h1 {
+    font-size: clamp(30px, 3vw, 60px);        
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .header {
+    height: 85vh;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .header {
+    /* background-image: url("../images/servicespage/darkfreight.jpg"); */
+  }
+}
+
+
+/* --------------------> shipping */
+
+.shipping {
+  height: clamp(600px, 80vw, 700px);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 4vw, 50px);
+  position: relative;  
+  padding: 10px;  
+  max-height: 620px;  
+  padding-top: clamp(50px, 8vw, 300px);  
+  margin-bottom: clamp(150px, 12vw, 400px);  
+}
+.shipping br {
+  display: none;
+}
+
+.shippingImageAfter {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  z-index: -1;
+  max-width: 700px;
+  right: 0;
+}
+
+@media only screen and (min-width: 400px) {
+
+  /* .shipping::after {
+    content: "";
+    background-image: url("../images/servicespage/truckwhite-derivatives/truckwhite-800_x_532.jpg");
+  } */
+}
+
+@media only screen and (min-width: 800px) {
+  .shipping .content {
+    width: 70%;
+  }
+  .shipping {
+    /* max-height: 650px;s */
+  }
+  /* .shipping::after {
+    content: "";
+    background-image: url("../images/servicespage/truckwhite-derivatives/truckwhite-1200_x_799.jpg");
+  } */
+}
+@media only screen and (min-width: 1050px) {
+  .shipping {
+    max-height: none;
+    height: clamp(300px, 50vw, 1000px);
+  }
+  .shipping .shippingImageAfter {
+    max-width: none;    
+    background-position: right;
+  }
+
+  .shipping h1 {
+    font-size: clamp(30px, 3vw, 60px);
+  }
+
+  .shipping .content {
+    width: 50%;
+    margin-left: clamp(30px, 3vw, 700px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(30px, 4vw, 70px);    
+  }
+  .shipping p {
+    font-size: 20px;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  /* .shipping::after {
+    content: "";
+    background-image: url("../images/servicespage/truckwhite-derivatives/truckwhite-1950_x_1298.jpg");
+  } */
+}
+@media only screen and (min-width: 1300px) {
+  .shipping div {
+    /* gap  */
+  }
+}
+
+/* --------------------> fleet */ 
+
+.fleet {
+  margin: auto;
+  padding: 10px;  
+  height: auto;  
+  max-width: 700px;
+  margin-bottom: clamp(150px, 12vw, 400px);  
+}
+.fleet > h1 {
+  text-align: center;
+  padding-bottom: clamp(40px, 6vw, 100px);
+}
+
+.fleet .cards .card {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 50px);
+}
+.fleet .cards .card p, .fleet .cards .card h1 {
+  margin: 0px;
+}
+.fleet .cards img {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;  
+  margin-bottom: 10px;
+}
+.fleet .cards h1 {
+  color: #0275d8;
+  font-size: 25px;
+}
+.fleet span {
+  font-size: 20px;
+}
+.fleet .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.fleet .cards .button {
+  text-decoration: none;
+  width: fit-content;
+  margin-bottom: 20px;
+  display: inline-block;
+  /* background-color: #0275d8;
+  color: white; */
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  padding-bottom: 2px;
+  margin-bottom: 0;
+  font-weight: 300;
+}
+.fleet .cards .button:hover {
+  color: gray;
+  border-color: gray;
+}
+
+@media only screen and (min-width: 1100px) {
+  .fleet {    
+    max-width: none;
+    text-align: center;
+    gap: 10px;
+    margin-bottom: 20vw;    
+    width: clamp(900px, 90vw, 1500px);
+  }
+  .fleet .cards {
+    display: flex;
+    flex-direction: row;
+    /* background-color: aqua; */
+    text-align: left;
+    /* gap: 7vw; */
+  }
+  .fleet .cards .card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-basis: 100%;
+  }
+  .fleet .cards img {
+    height: clamp(250px, 20vw, 300px);
+  }
+  .fleet .cards h1 {
+
+  }
+  .fleet .cards p {
+    font-size: clamp(16px, 1.2vw, 20px);
+  }
+  .fleet .cards .button {
+    font-size: clamp(16px, 1.2vw, 19px);
+  }
+}
+
+/* --------------------> capacity */ 
+
+.capacity {
+  margin: 25px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  margin-bottom: clamp(150px, 12vw, 400px);  
+}
+.capacity > h1 {
+  margin-bottom: clamp(50px, 4vw, 100px);
+}
+.capacity .image {
+  height: 30vh;
+  /* background-size: cover;   */
+  object-fit: cover;
+  background-position: center;
+  margin-bottom: clamp(30px, 5vw, 70px);
+}
+.capacity .cards .card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.capacity .cards h1 {
+  color: #0275d8;
+  font-size: 25px;
+}
+.capacity .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.capacity .cards .button {
+  text-decoration: none;
+  width: fit-content;
+  margin-bottom: 20px;
+  display: inline-block;
+  /* background-color: #0275d8;
+  color: white; */
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid black;
+  border-radius: 0;
+  padding-bottom: 2px;
+  margin-bottom: 0;
+  font-weight: 300;
+}
+.capacity .cards .button:hover {
+  color: gray;
+  border-color: gray;
+}
+
+@media only screen and (min-width: 1100px) {
+  .capacity {
+    width: 95%;
+    max-width: none;
+    text-align: center;    
+    margin-bottom: 20vw;
+    width: 95vw;    
+  }
+  .capacity .image {
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    object-position: right;
+  }
+  .capacity .cards {
+    display: flex;
+    flex-direction: row;
+    /* background-color: aqua; */
+    text-align: left;
+    gap: 7vw;
+    width: clamp(900px, 90vw, 1500px);
+    margin: auto;
+    width: 100%;
+  }
+  .capacity .cards .card {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  .capacity .cards p {
+    font-size: clamp(16px, 1.2vw, 20px);
+  }
+}
+
+/* --------------------> service footer */ 
+
+.serviceFooter {
+  height: 500px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(30px, 5vw, 80px);
+  padding: 0px 10px;
+}
+.serviceFooter * {
+  color: white;
+}
+.serviceFooter h1 {
+  width: 95%;   
+}
+.serviceFooter span {
+  font-size: clamp(18px, 4vw, 20px);
+}
+.serviceFooter .button {
+  text-decoration: none;
+  padding: 10px 30px;
+  border: 2px solid white;
+  border-radius: 100px;
+  font-size: clamp(18px, 4vw, 20px);
+  transition: background 0.3s;
+}
+.serviceFooter .button:hover {
+  background-color: white;
+  color: black;
+}
+@media only screen and (min-width: 1100px) {
+  .serviceFooter h1 {
+    text-align: center;
+  } 
+}
+

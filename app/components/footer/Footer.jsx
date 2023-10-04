@@ -1,34 +1,65 @@
-import React from "react";
-
+"use client";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 // import logo from "../../images/company-logo.png";
-// import facebookIcon from "../../images/socials/facebook.svg";
-// import instagramIcon from "../../images/socials/instagram.svg";
-// import linkedInIcon from "../../images/socials/linkedin.svg";
+import facebookIcon from "./images/facebook.svg";
+import instagramIcon from "./images/instagram.svg";
+import linkedInIcon from "./images/linkedin.svg";
 
 import classes from "./footer.module.css";
+import { GraphQLClient, gql } from "graphql-request";
 import { useTranslation } from "react-i18next";
 
 export default function FooterComponent() {
+  const [logo, setLogo] = useState("");
   const { t } = useTranslation();
+
+  useEffect(() => {
+    const graphcms = new GraphQLClient(
+      "https://api-us-east-1-shared-usea1-02.hygraph.com/v2/cln1nhn7k0cnl01us2gnc06e4/master"
+    );
+    const QUERY = gql`
+      {
+        homes {
+          companyLogo {
+            url
+          }
+        }
+      }
+    `;
+
+    async function fetchData() {
+      try {
+        const { homes } = await graphcms.request(QUERY);
+        console.log(`Here is the element from the server:`);
+        console.log(homes);
+
+        setLogo(homes[0].companyLogo.url);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <React.Fragment>
       <div className={classes.footerWrapper}>
         <div className={classes.footer}>
           <div className={classes.brand}>
-            {/* <img src={logo} alt="" /> */}
+            <img src={logo} alt="" />
             <ul className={classes.icons}>
               <h1 style={{ color: "black" }}>Follow Us</h1>
               <div>
                 <a href="">
-                  {/* <img src={facebookIcon} /> */}
+                  <img src={facebookIcon} />
                 </a>
                 <a href="">
-                  {/* <img src={linkedInIcon} /> */}
+                  <img src={linkedInIcon} />
                 </a>
                 <a href="">
-                  {/* <img src={instagramIcon} /> */}
+                  <img src={instagramIcon} />
                 </a>
               </div>
             </ul>
@@ -105,7 +136,7 @@ export default function FooterComponent() {
         <span>
           {"© Copyright 2022 by V&Y Horizon."}
           <br />
-          {t("footer.copyright-2")}
+          {"All rights reserved."}
         </span>
       </div>
     </React.Fragment>

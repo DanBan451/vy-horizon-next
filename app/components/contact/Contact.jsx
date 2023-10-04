@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./contact.module.css";
+import classes from "../../home/home.module.css";
 import Link from "next/link";
 
 
