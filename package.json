@@ -33,7 +33,7 @@
     "jquery": "^3.7.1",
     "lodash": "^4.17.21",
     "next": "latest",
-    "npm": "^10.1.0",
+    "npm": "8.19.4",
     "react": "^18.2.0",
     "react-animation-on-scroll": "^5.1.0",
     "react-bootstrap": "^2.7.0",
