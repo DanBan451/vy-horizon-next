@@ -3,9 +3,14 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 // import logo from "../../images/company-logo.png";
-import facebookIcon from "./images/facebook.svg";
-import instagramIcon from "./images/instagram.svg";
-import linkedInIcon from "./images/linkedin.svg";
+// import facebookIcon from "./images/facebook.svg";
+// import instagramIcon from "./images/instagram.svg";
+// import linkedInIcon from "./images/linkedin.svg";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 import classes from "./footer.module.css";
 import { GraphQLClient, gql } from "graphql-request";
@@ -32,8 +37,6 @@ export default function FooterComponent() {
     async function fetchData() {
       try {
         const { homes } = await graphcms.request(QUERY);
-        console.log(`Here is the element from the server:`);
-        console.log(homes);
 
         setLogo(homes[0].companyLogo.url);
       } catch (error) {
@@ -53,13 +56,28 @@ export default function FooterComponent() {
               <h1 style={{ color: "black" }}>Follow Us</h1>
               <div>
                 <a href="">
-                  <img src={facebookIcon} />
+                  <FontAwesomeIcon
+                    icon={faFacebook}
+                    color="#005cac"
+                    fontSize={30}
+                    className="blue-chevron"                    
+                  />
                 </a>
                 <a href="">
-                  <img src={linkedInIcon} />
+                  <FontAwesomeIcon
+                    icon={faInstagram}
+                    color="#005cac"
+                    fontSize={30}
+                    className="blue-chevron"
+                  />
                 </a>
                 <a href="">
-                  <img src={instagramIcon} />
+                  <FontAwesomeIcon
+                    icon={faLinkedin}
+                    color="#005cac"
+                    fontSize={30}
+                    className="blue-chevron"
+                  />
                 </a>
               </div>
             </ul>
@@ -120,13 +138,30 @@ export default function FooterComponent() {
             <h1>{t("footer.header-h1")}</h1>
             <div>
               <a href="">
-                {/* <img src={facebookIcon} /> */}
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  color="#005cac"
+                  fontSize={30}
+                  className="blue-chevron"
+                />
               </a>
               <a href="">
-                {/* <img src={linkedInIcon} /> */}
+                {" "}
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  color="#005cac"
+                  fontSize={30}
+                  className="blue-chevron"
+                />
               </a>
               <a href="">
-                {/* <img src={instagramIcon} /> */}
+                {" "}
+                <FontAwesomeIcon
+                  icon={faFacebook}
+                  color="#005cac"
+                  fontSize={30}
+                  className="blue-chevron"
+                />
               </a>
             </div>
           </ul>

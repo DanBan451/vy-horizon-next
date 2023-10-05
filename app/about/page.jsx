@@ -40,9 +40,7 @@ export default function About({ navigation }) {
 
     async function fetchData() {
       try {
-        const { abouts } = await graphcms.request(QUERY);
-        console.log(`Here is the element from the server:`);
-        console.log(abouts);
+        const { abouts } = await graphcms.request(QUERY);        
 
         setData(abouts[0]);
         setIsLoading(false);

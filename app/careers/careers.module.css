@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600&display=swap");
+
+.wrapper h1 {
+  font-family: "Poppins", sans-serif;
+}
+
+.careers {
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------header */
+
+.header {
+  height: 50vh;
+  width: 100vw;  
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  flex-direction: column;  
+  /* background-color: red; */
+  background-blend-mode: multiply;
+  text-align: center;
+  display: flex;
+  position: relative;
+  /* background-image: url("../images/careerspage/main-derivatives/main-1200_x_801.jpg"); */
+}
+.header .headerImage {
+  position: absolute;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  object-fit: cover; 
+}
+
+.header::after {
+  content: "";
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+.header div:last-of-type {
+  margin: auto;
+  z-index: 4;
+}
+.header h1 {
+  color: white;
+  margin-bottom: clamp(30px, 3vw, 30px);
+}
+.header .button {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 10px 30px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+.header .button:hover {
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.description {
+  width: 90%;
+  margin: clamp(70px, 10vw, 120px) auto;
+  text-align: center;
+  font-size: clamp(16px, 2vw, 20px);
+}
+.description br {
+  display: none;
+}
+.description span {
+  background-color: rgb(146, 215, 255);
+  padding: 0px 5px;
+}
+
+@media only screen and (min-width: 930px) {
+  .header {
+    height: 60vh;
+    /* clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); */
+  }
+  .description br {
+    display: block;
+  }
+  .header {
+    /* background-image: url("../images/careerspage/main-derivatives/main-1950_x_1301.jpg"); */
+  }
+}
+@media only screen and (min-width: 1050px) {
+  .header h1 {
+    font-size: clamp(30px, 3vw, 60px);
+  }
+}
+
+/* --------banner */
+
+.banner {
+  height: 40vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  flex-direction: column;
+  background-color: rgba(69, 69, 69, 0.9);
+  background-blend-mode: multiply;
+  text-align: center;
+  display: flex;
+  margin-bottom: clamp(70px, 10vw, 120px);  
+  position: relative;
+}
+.banner::after {
+  content: "";
+  position: absolute;
+  background-blend-mode: multiply;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+}
+.banner h1 {
+  margin: auto;
+  color: white;
+  font-size: 18px;
+  z-index: 4;
+}
+.banner h1 strong {
+  font-size: 35px;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+@media only screen and (min-width: 930px) {
+  .banner h1 br {
+    display: none;
+  }
+  .banner h1 strong {
+    display: inline-block;
+    padding-bottom: 0px;
+  }
+}
+
+/* --------description2 */
+
+.description2 {
+  width: 90%;
+  margin: auto;
+  margin-bottom: clamp(70px, 10vw, 120px);
+  text-align: center;
+  font-size: clamp(16px, 2vw, 18px);
+}
+
+/* --------list */
+
+ul.careerList {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  max-width: 600px;
+  margin: auto;
+  gap: 100px;  
+  margin-bottom: clamp(100px, 15vw, 200px);
+}
+ul.careerList .career {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+ul.careerList .career div {
+  display: flex;
+  flex-direction: column;
+}
+ul.careerList .career div h1 {
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+ul.careerList .career div p {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+ul.careerList .career .image {
+  max-width: 600px;
+  height: 40vh;
+  object-fit: cover;
+  position: relative;
+}
+ul.careerList .career .button {
+  background-color: rgb(146, 215, 255);
+  border: 1px solid rgb(146, 215, 255);
+  width: fit-content;
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  font-weight: 600;
+}
+ul.careerList .career .button:hover {
+  background-color: white;
+}
+
+/* footer */
+
+.careerFooter {
+  height: 500px;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(30px, 5vw, 80px);
+  padding: 0px 10px;
+}
+.careerFooter * {
+  color: white;
+}
+.careerFooter h1 {
+  width: 95%;
+}
+.careerFooter span:first-of-type {
+  font-size: clamp(18px, 4vw, 20px);
+}
+.careerFooter span:last-of-type {
+  font-size: clamp(20px, 4vw, 25px);
+  font-weight: 600;
+}
+.careerFooter .button {
+  text-decoration: none;
+  padding: 10px 30px;
+  border: 2px solid white;
+  border-radius: 100px;
+  font-size: clamp(18px, 4vw, 20px);
+}
+.careerFooter ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 0%;
+}
+.careerFooter .icon {
+  text-decoration: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.careerFooter .icon span {
+  font-weight: 400;
+  font-size: clamp(18px, 4vw, 20px);
+}
+
+@media only screen and (min-width: 1100px) {
+  .careerFooter h1 {
+    text-align: center;
+  }  
+}
+
+@media only screen and (min-width: 930px) {
+  ul.careerList {
+    max-width: none;
+    max-width: 1390px;
+  }
+  ul.careerList .career {
+    flex-direction: row;
+  }
+  ul.careerList .career div span {
+    font-size: clamp(16px, 1.7vw, 19px);
+  }
+  ul.careerList .career div,
+  ul.careerList .career .image {
+    width: 100%;
+    max-width: 600px;
+  }
+  ul.careerList .career .image {
+    object-fit: cover;
+    height: 40vh;
+    margin-right: auto;
+  }  
+}
+
+/* form */
+
+.wrapper textarea:focus, .wrapper input:focus{
+  outline: none;
+}
+.title {  
+  text-align: center;
+  font-weight: 500;  
+  margin-bottom: 5vw;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;    
+  width: 90%;         
+  max-width: 700px;      
+  margin: auto;  
+  row-gap: 20px;    
+  gap: 20px;  
+  margin-bottom: clamp(100px, 15vw, 200px);
+}
+.form > div {    
+  display: flex;    
+  flex-direction: column;
+}
+
+.form > .required input {  
+  display: inline-block;    
+  width: 100%;    
+  padding-left: 10px;  
+  margin-bottom: 10px;
+}
+.form > .required select {  
+  display: inline-block;    
+  width: 100%;    
+  padding-left: 10px;  
+  margin-bottom: 10px;
+  padding-right: 10px;
+}
+
+.form div input, .form div select, .form .textarea, .form button {
+  border-width: 0px;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 16px;  
+  padding: 15px 10px;   
+}
+.form div select {
+}
+.form input {
+  padding: 10px;
+}
+
+.form .label {
+  padding-bottom: 10px;
+}
+.form .required .label:after {
+  content: '*';    
+  position: relative;  
+  display: inline;
+  width: fit-content;     
+  color: red;
+  font-size: 25px;  
+  height: 0px;  
+  top: 6px;      
+  left: 5px;
+}
+.form textarea {
+  margin-bottom: 10px;
+}
+.form .textArea .label:after {
+  content: '*';    
+  position: relative;  
+  display: inline;
+  width: fit-content;     
+  color: red;
+  font-size: 25px;  
+  height: 0px;  
+  top: 6px;      
+  left: 5px;
+}
+
+.form .weight {
+  display: flex;
+  flex-direction: row;  
+  gap: 10px;
+}
+.form .weight > * {
+  width: 50%;  
+  display: flex;
+  flex-direction: column;
+}
+
+.form .weight > * > * {
+  width: 100%;  
+}
+.form .weight > * >  {
+
+}
+  
+.form .weight .label {
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+}
+
+.form .required .error {
+  height: 100%;      
+}
+
+.form .textArea {
+  grid-column: 1 / span 2;    
+  width: 100%;
+}
+.form textarea {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 17vh;  
+  resize: none;
+  padding: 10px 10px;     
+}
+.form button {
+  transition: 0.3s;
+  border-width: 0;
+  font-size: 18px;
+  border: 1.5px solid black;   
+  width: 80%;
+  font-weight: 500;
+  color: white;  
+  border-color: white;
+  grid-column: 1 / span 2; 
+  width: 32%;
+  min-width: 150px;
+  max-width: 135px;
+  margin-top: 10px;      
+}
+.form > :nth-last-child(1):hover { 
+  background-color: white;
+  color: black;
+}
+
+@media only screen and (min-width: 800px) {
+  .form {
+    width: 50%;;
+  }
+}
+

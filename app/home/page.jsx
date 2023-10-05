@@ -87,9 +87,7 @@ export default function Main() {
 
     async function fetchData() {
       try {
-        const { homes } = await graphcms.request(QUERY);
-        console.log(`Here is the element from the server:`);
-        console.log(homes);
+        const { homes } = await graphcms.request(QUERY);        
 
         setData(homes[0]);
         setWords(homes[0].mainHeaderChangingWords);

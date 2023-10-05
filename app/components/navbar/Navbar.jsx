@@ -31,9 +31,6 @@ function NavBarComponent({ handleOpenModal }) {
     async function fetchData() {
       try {
         const { homes } = await graphcms.request(QUERY);
-        console.log(`Here is the element from the server:`);
-        console.log(homes);
-
         setLogo(homes[0].companyLogo.url);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -42,7 +39,7 @@ function NavBarComponent({ handleOpenModal }) {
     fetchData();
   }, []);
 
-  console.log(pathname);
+  // console.log(pathname);
 
   return (
     <div>
@@ -117,7 +114,7 @@ function NavBarComponent({ handleOpenModal }) {
             <div className="d-flex options-container">
               <NavLink
                 className="btn quote-btn"
-                href={"/contact"}
+                href={""}
                 onClick={handleOpenModal}
               >
                 Get a Quote

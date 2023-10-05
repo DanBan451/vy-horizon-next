@@ -51,9 +51,7 @@ export default function Services() {
         //   smooth: true,
         //   duration: 0,
         // });
-        const { services } = await graphcms.request(QUERY);
-        console.log(`Here is the element from the server:`);
-        console.log(services);
+        const { services } = await graphcms.request(QUERY);        
 
         setData(services[0]);
         setIsLoading(false);
