@@ -165,8 +165,6 @@ export default function Contact() {
 
         setData(contacts[0]);
         setIsLoading(false);
-        console.log("Contacts data below!");
-        console.log(contacts[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -217,7 +215,6 @@ export default function Contact() {
     });
   };
   const handleChangeSelect = (name, value, required = true) => {
-    console.log(dataForm);
 
     if (required) {
       const error = validateProperty(name, value);
@@ -251,8 +248,7 @@ export default function Contact() {
     if (result) {
       result.details.forEach((element) => {
         errors[element.context.key] = element.message;
-      });
-      console.log(errors);
+      });      
       return errors;
     }
     return null;

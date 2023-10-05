@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <NavBarComponent handleOpenModal={handleOpenModal} />
         <QuoteModal isOpen={modalOpen} onClose={handleCloseModal} />
         

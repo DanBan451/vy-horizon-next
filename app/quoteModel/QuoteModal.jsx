@@ -119,8 +119,7 @@ const QuoteModal = ({ isOpen, onClose }) => {
     if (result) {
       result.details.forEach((element) => {
         errors[element.context.key] = element.message;
-      });
-      console.log(errors);
+      });      
       return errors;
     }
     return null;
