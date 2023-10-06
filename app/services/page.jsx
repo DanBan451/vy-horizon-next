@@ -15,6 +15,7 @@ import { GraphQLClient, gql } from "graphql-request";
 
 export default function Services() {
   const [data, setData] = useState({});
+  const [capacityContent, setCapacityContent] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { t } = useTranslation();
 
@@ -51,9 +52,19 @@ export default function Services() {
         //   smooth: true,
         //   duration: 0,
         // });
-        const { services } = await graphcms.request(QUERY);        
+        const { services } = await graphcms.request(QUERY);
 
+        let capacityContent = [];
+        for (let i = 1; i < services[0].section3Content.length; i += 2) {
+          let arr = [];
+          arr.push(services[0].section3Content[i]);
+          arr.push(services[0].section3Content[i + 1]);
+          capacityContent.push(arr);
+        }
+        console.log(capacityContent);
         setData(services[0]);
+        setCapacityContent(capacityContent);
+
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -232,19 +243,40 @@ export default function Services() {
               classNameProp={classes.image}
             />
           )}
+
           <div className={classes.cards}>
-            {isLoading ? (
-              <div
-                className={`${loadingClasses.loading} ${classes.card}`}
-                style={{ height: "40vh" }}
-              />
-            ) : (
-              <div className={classes.card}>
-                <h1>{data.section3Content[1]}</h1>
-                <p>{data.section3Content[2]}</p>
-              </div>
+            {capacityContent.map((content, index) =>
+              isLoading ? (
+                <div
+                  key={index} // Added a unique key for each div in the map
+                  className={`${loadingClasses.loading} ${classes.card}`}
+                  style={{ height: "40vh" }}
+                />
+              ) : (
+                <div key={index} className={classes.card}>
+                  <h1>{content[0]}</h1>
+                  <p>{content[1]}</p>
+                </div>
+              )
             )}
-            {isLoading ? (
+          </div>
+          
+          {/* <div className={classes.cards}>
+            {capacityContent.map((content) => {
+              isLoading ? (
+                <div
+                  className={`${loadingClasses.loading} ${classes.card}`}
+                  style={{ height: "40vh" }}
+                />
+              ) : (
+                <div className={classes.card}>
+                  <h1>{content[0]}</h1>
+                  <p>{content[1]}</p>
+                </div>
+              );
+            })} */}
+
+            {/* {isLoading ? (
               <div className={`${loadingClasses.loading} ${classes.card}`} />
             ) : (
               <div className={classes.card}>
@@ -259,15 +291,15 @@ export default function Services() {
                 <h1>{data.section3Content[5]}</h1>
                 <p>{data.section3Content[6]}</p>
               </div>
-            )}
-          </div>
+            )} */}
+          {/* </div> */}
         </div>
       </AnimationOnScroll>
 
       {isLoading ? (
         <div
           className={`${loadingClasses.loading}`}
-          style={{ height: '50vh', marginBottom: '5vh' }}
+          style={{ height: "50vh", marginBottom: "5vh" }}
         />
       ) : (
         <div className={classes.serviceFooter}>

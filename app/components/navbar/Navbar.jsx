@@ -48,7 +48,7 @@ function NavBarComponent({ handleOpenModal }) {
         expand="xl"
         className={`${classes.navbar}`}
       >
-        <Container className="navbar-inner" fluid>
+        <Container className={`navbar-inner p-0 ${classes.navbarContainer}`} fluid>
           <Navbar.Brand to="/home" className={classes.logoWrapper}>
             <Link
               style={{ textAlign: "center" }}
@@ -60,8 +60,8 @@ function NavBarComponent({ handleOpenModal }) {
               <img src={logo} className={classes.logo} />
             </Link>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
+          <Navbar.Toggle className={classes.navbarToggle} style={{ marginRight: 10 }} aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll" className={classes.navbarCollapseClass}>
             <Nav className={`my-2 my-lg-0 ${classes.navBar}`}>
               <Link
                 style={{ textAlign: "center", padding: 15 }}

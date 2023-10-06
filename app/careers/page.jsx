@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { animateScroll as scroll } from "react-scroll";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 
@@ -175,9 +176,9 @@ export default function Careers() {
           <div className={classes.header}>
             <div className={classes.content}>
               <h1>{data.mainHeaderContent[0]}</h1>
-              <Link className={classes.button} href="/contact">
+              <a className={classes.button} href={"#form"}>
                 {data.mainHeaderContent[1]}
-              </Link>
+              </a>
             </div>
             <Loader
               src={data.mainHeaderImage[3].url}
@@ -249,9 +250,9 @@ export default function Careers() {
                 <div>
                   <h1>{data.section2Content[0]}</h1>
                   <p>{data.section2Content[1]}</p>
-                  <Link className={classes.button} href="/contact">
+                  <a className={classes.button} href={"#form"}>
                     {data.section2Content[2]}
-                  </Link>
+                  </a>
                 </div>
               </div>
             )}
@@ -272,9 +273,9 @@ export default function Careers() {
                 <div>
                   <h1>{data.section2Content[3]}</h1>
                   <p>{data.section2Content[4]}</p>
-                  <Link className={classes.button} href="/contact">
+                  <a className={classes.button} href={"#form"}>
                     {data.section2Content[5]}
-                  </Link>
+                  </a>
                 </div>
               </div>
             )}
@@ -294,12 +295,10 @@ export default function Careers() {
                 />
                 <div>
                   <h1>{data.section2Content[6]}</h1>
-                  <p>
-                  {data.section2Content[7]}
-                  </p>
-                  <Link className={classes.button} href="/contact">
-                  {data.section2Content[8]}
-                  </Link>
+                  <p>{data.section2Content[7]}</p>
+                  <a className={classes.button} href={"#form"}>
+                    {data.section2Content[8]}
+                  </a>
                 </div>
               </div>
             )}
@@ -319,12 +318,10 @@ export default function Careers() {
                 />
                 <div>
                   <h1>{data.section2Content[9]}</h1>
-                  <p>
-                  {data.section2Content[10]}
-                  </p>
-                  <Link className={classes.button} href="/contact">
-                  {data.section2Content[11]}
-                  </Link>
+                  <p>{data.section2Content[10]}</p>
+                  <a className={classes.button} href={"#form"}>
+                    {data.section2Content[11]}
+                  </a>
                 </div>
               </div>
             )}
@@ -334,7 +331,7 @@ export default function Careers() {
         {isLoading ? (
           <div className={`${loadingClasses.loading}`} />
         ) : (
-          <React.Fragment>
+          <div id={"form"} className={classes.formWrapper}>
             <AnimationOnScroll animateIn="animate__fadeIn">
               <h1 className={classes.title}>Contact Us Today!</h1>
               <div className={classes["modal-content"]}>
@@ -416,40 +413,21 @@ export default function Careers() {
                 <span>Please dont forget to follow us</span>
                 <ul className="social-links">
                   <li>
-                    <Link className={classes.icon} href={"/"}>
+                    <Link className={classes.icon} href={"https://www.linkedin.com/feed/"}>
                       <FontAwesomeIcon
-                        icon={["fab", "twitter"]}
-                        size={"2x"}
-                        color="white"
+                        icon={faLinkedin}
+                        color="#005cac"
+                        fontSize={30}
+                        className="blue-chevron"
                       />
-                      <span>V&Y Horizon</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className={classes.icon} href={"/"}>
-                      <FontAwesomeIcon
-                        icon={["fab", "facebook"]}
-                        size={"2x"}
-                        color="white"
-                      />
-                      <span>V&Y Horizon</span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className={classes.icon} href={"/"}>
-                      <FontAwesomeIcon
-                        icon={["fab", "linkedin"]}
-                        size={"2x"}
-                        color="white"
-                      />
-                      <span>V&Y Horizon</span>
+                      <span>V&Y Horizon @ LinkedIn</span>
                     </Link>
                   </li>
                 </ul>
                 <span>Thank you!</span>
               </div>
             </AnimationOnScroll>
-          </React.Fragment>
+          </div>
         )}
       </div>
     </div>

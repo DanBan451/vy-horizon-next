@@ -386,45 +386,15 @@ color: black; */
 
 /* ----------------------------------- services */
 
-/* .services {
-  display: grid;  
-  grid-template-columns: 1fr;    
-} */
 .service {
   display: flex;
   flex-direction: column;
   padding-bottom: 100px;
   background-color: white;
   margin: 10px;
-  margin-top: clamp(50px, 10vw, 100px);  
-  z-index: -1;  
+  margin-top: clamp(50px, 10vw, 100px);    
   position: relative;
-}
-
-.service .absolute {
-  content: "";
-  width: 100%;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  z-index: 1;  
-  position: absolute;
-  z-index: 1;
-}
-.service .sticky {
-  width: 100%;
-  height: 50%;  
-  position: sticky;
-  top: 0;  
-  background-color: white;
-}
-
-
-
-/* creating z-index effect */
-.service .serviceImage, .service .serviceContent {
-  z-index: 10;
-  opacity: 1;    
+  background: transparent;
 }
 
 .service div {
@@ -437,6 +407,10 @@ color: black; */
   background-size: contain;
   background-position: right;
   background-color: palegoldenrod;
+  background: transparent;
+}
+.service .serviceContent {
+  background: transparent;
 }
 .service h1 {
   margin: 20px 0;
@@ -457,11 +431,11 @@ color: black; */
   border-radius: 0;
   padding-bottom: 2px;
   margin-bottom: 0;
-  font-weight: 300;
+  font-weight: 300;  
 }
 .service .serviceBtn:hover {
   color: gray;
-  border-color: gray;
+  border-color: grey;
 }
 
 /* media queries */
@@ -490,7 +464,7 @@ color: black; */
 @media only screen and (min-width: 1000px) {
   .service {
     position: relative;
-    display: flex;
+    display: flex;        
   }
   .service .blueprint {
     display: block;
@@ -500,8 +474,8 @@ color: black; */
     align-self: center;
     justify-self: center;
     display: flex;
-    margin-top: clamp(50px, 10vw, 100px);  
-
+    margin-top: clamp(50px, 10vw, 100px);      
+    z-index: -1;
   }
   
   .service .stream1 {
@@ -1034,6 +1008,12 @@ color: black; */
   color: white;
   border-radius: 100px;
   font-weight: 600;
+  border-width: 1px;
+}
+.contact .button:hover {
+  border: 1px solid #005cac;
+  background-color: white;
+  color: black;
 }
 @media (min-width: 1000px) {
   .contact br {

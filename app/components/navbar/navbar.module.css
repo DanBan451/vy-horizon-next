@@ -4,6 +4,17 @@
 
 /* Mobile */
 
+
+.navWrapper .navbarContainer {  
+}
+.navbarContainer .navbarCollapseClass {
+  background-color: white;
+}
+.navbarToggle {
+  background-color: red;
+  border: 2px solid red;
+}
+
 #navWrapper.navbar {
   width: 100vw;
   margin-left: 0;
@@ -12,6 +23,7 @@
   z-index: 10;
   background-color: white;
   height: 10vh;
+  min-height: 100px;
   display: flex;
 }
 #navWrapper.navbar > div {

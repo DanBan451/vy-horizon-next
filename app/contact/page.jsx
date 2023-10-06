@@ -430,7 +430,7 @@ export default function Contact() {
                 type="submit"
                 disabled={submitted || validate()}
               >
-                {t("contact.button")}
+                {'Submit'}
               </button>
             </form>
           </div>

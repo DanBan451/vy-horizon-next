@@ -344,7 +344,7 @@ export default function Main() {
           )}
         </div>
 
-        <div className={`${classes.shippingService} shippingService`}>
+        {/* <div className={`${classes.shippingService} shippingService`}>
           {isLoading ? (
             <div
               className={`${loadingClasses.loading} ${classes.shippingImage}`}
@@ -422,7 +422,7 @@ export default function Main() {
               </div>
             )}
           </div>
-        </div>
+        </div> */}
 
         {isLoading ? (
           <div
@@ -466,7 +466,7 @@ export default function Main() {
                   </div>
                 </div>
               </div>
-              <Reviews />
+              <Reviews partnershipLogos={data.partnershipLogos} />
             </AnimationOnScroll>
             <AnimationOnScroll animateIn="animate__fadeIn">
               <Contact />
