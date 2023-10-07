@@ -38,9 +38,7 @@ function NavBarComponent({ handleOpenModal }) {
     }
     fetchData();
   }, []);
-
-  // console.log(pathname);
-
+  
   return (
     <div>
       <Navbar
