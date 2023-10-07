@@ -418,7 +418,7 @@ export default function Contact() {
               </div>
               {submitted || validate() ? (
                 <ReCAPTCHA
-                  sitekey="6Lec-4AoAAAAAN1Z0-D-u_liwz-qqPp-j0LocMPN"
+                  sitekey="6LfBBIEoAAAAAOE6cdrbl5S41kCdK1W41KXxk41k"
                   style={{ gridColumn: "1 / span 2" }}
                   onChange={handleCaptchaComplete}
                 />
