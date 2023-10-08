@@ -3,12 +3,19 @@
   height: 80vh;
   background-color: #005aa8;
   display: flex;
+  z-index: 10;  
+}
+.wrapper > {
+  display: flex;
 }
 
 .carousel {       
   padding-bottom: 50px;  
-  height: min-content;
+  height: 100%;  
   margin: auto;
+  /* border: 3px solid black;    */
+  display: flex;
+  align-items: center;
 }
 
 .carousel *  { 
@@ -18,20 +25,23 @@ color: white;
 .carousel .carouselItem {
   height: 100%;  
   width: 100vw;
+  /* background-color: red; */
+  /* border: 3px solid white;  */
 }
 .carousel .item {
   margin: auto;
   text-align: center;
-  width: 50%; 
-    
+  width: 50%;     
   height: 100%;   
   justify-content: center;  
+  flex-direction: column; 
+  /* border: 3px solid purple;  */
 }
 
 .carousel .item img {
   height: 100px;
   flex-grow: 0;    
-  border-radius: 50%;
+  /* border-radius: 50%; */
   margin: auto;
   margin-bottom: 20px;    
 }

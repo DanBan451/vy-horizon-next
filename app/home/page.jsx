@@ -40,7 +40,7 @@ export default function Main() {
     Array(words.length).fill(false)
   );
 
-  useEffect(() => {    
+  useEffect(() => {
     // router.beforePopState((state) => {
     //   state.options.scroll = false;
     //   return true;
@@ -87,7 +87,7 @@ export default function Main() {
 
     async function fetchData() {
       try {
-        const { homes } = await graphcms.request(QUERY);        
+        const { homes } = await graphcms.request(QUERY);
 
         setData(homes[0]);
         setWords(homes[0].mainHeaderChangingWords);
@@ -425,9 +425,7 @@ export default function Main() {
         </div> */}
 
         {isLoading ? (
-          <div
-            className={`${loadingClasses.loading}`}
-          />
+          <div className={`${loadingClasses.loading}`} />
         ) : (
           <React.Fragment>
             <div className={`${classes.streamSection} streamSection`}>
@@ -467,8 +465,6 @@ export default function Main() {
                 </div>
               </div>
               <Reviews partnershipLogos={data.partnershipLogos} />
-            </AnimationOnScroll>
-            <AnimationOnScroll animateIn="animate__fadeIn">
               <Contact />
             </AnimationOnScroll>
           </React.Fragment>

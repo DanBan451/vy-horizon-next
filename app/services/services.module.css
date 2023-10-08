@@ -82,7 +82,7 @@
   position: relative;  
   padding: 10px;  
   max-height: 620px;  
-  padding-top: clamp(50px, 8vw, 300px);  
+  padding-top: clamp(120px, 8vw, 120px);  
   margin-bottom: clamp(150px, 12vw, 400px);  
 }
 .shipping br {

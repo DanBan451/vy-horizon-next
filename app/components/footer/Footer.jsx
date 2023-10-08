@@ -111,7 +111,7 @@ export default function FooterComponent() {
                   <strong>Fax</strong>: {data.footerContent[2]}
                 </li>
                 <li>
-                  <strong>Address:</strong>: {data.footerContent[3]} <br />                  
+                  <strong>Address:</strong> {data.footerContent[3]} <br />                  
                 </li>                
                 <li>
                   <strong>Office Hours:</strong> {data.footerContent[4]}

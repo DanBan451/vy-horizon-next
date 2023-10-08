@@ -864,7 +864,7 @@ color: black; */
   background-repeat: no-repeat;
   display: flex;
   background-color: rgba(0, 0, 0, 0.4);
-  background-color: rgba(0, 200, 255, 0.5);
+  /* background-color: rgba(0, 200, 255, 0.5); */
   background-blend-mode: multiply;
   position: relative;
   /* margin-bottom: clamp(100px, 20vw, 200px); */
@@ -940,7 +940,7 @@ color: black; */
 
 @media (min-width: 1000px) {
   .bottomHeader::after {
-    background-color: rgba(0, 200, 255, 0.4);
+    background-color: rgba(0, 200, 255, 0.4);    
   }
   .bottomHeader .divider {
     margin-left: 5vw;

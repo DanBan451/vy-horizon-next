@@ -79,7 +79,8 @@
   display: none;
 }
 .description span {
-  background-color: rgb(146, 215, 255);
+  /* background-color: rgb(146, 215, 255); */
+  background-color: #005aa8;
   padding: 0px 5px;
 }
 
@@ -299,7 +300,7 @@ ul.careerList .career .button:hover {
   margin-bottom: 5vw;
 }
 .formWrapper {
-  padding-top: 10vh;
+  padding-top: clamp(120px, 8vw, 120px);  
   background-color: #005aa8;
 }
 .formWrapper * {
@@ -313,7 +314,7 @@ ul.careerList .career .button:hover {
   margin: auto;  
   row-gap: 20px;    
   gap: 20px;  
-  padding-bottom: 10vh;  
+  padding-bottom: clamp(120px, 8vw, 120px);  
 }
 .form > div {    
   display: flex;    
