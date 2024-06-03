@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { animateScroll as scroll } from "react-scroll";
 import Loader from "../components/loader/Loader";
-import { useTranslation } from "react-i18next";
 import classes from "./about.module.css";
 import Contact from "../components/contact/Contact";
 
@@ -17,8 +16,6 @@ import { GraphQLClient, gql } from "graphql-request";
 export default function About({ navigation }) {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-
-  const { t } = useTranslation();
 
   useEffect(() => {
     const graphcms = new GraphQLClient(

@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 
 import { animateScroll as scroll } from "react-scroll";
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import { useTranslation } from "react-i18next";
 
 import Reviews from "../components/reviews/Reviews";
 import Loader from "../components/loader/Loader";
@@ -216,7 +215,7 @@ export default function Main() {
 
   // ------------------------------------------------------------ if loading of data is complete then render everythng else
 
-  return (
+  return (    
     <div>
       <div className={`${classes.fixed} fixed`}></div>
       <div className={classes.wrapper}>
@@ -343,87 +342,6 @@ export default function Main() {
             </div>
           )}
         </div>
-
-        {/* <div className={`${classes.shippingService} shippingService`}>
-          {isLoading ? (
-            <div
-              className={`${loadingClasses.loading} ${classes.shippingImage}`}
-            />
-          ) : (
-            <React.Fragment>
-              <span>{data.section2Content[0]}</span>
-              <div className={`${classes.stream1} stream1`} />
-              <h1>{data.section2Content[1]}</h1>
-              <div className={`${classes.stream2} stream2`} />
-
-              <Loader
-                src={data.section2Image[3].url}
-                small={data.section2Image[0].url}
-                medium={data.section2Image[1].url}
-                large={data.section2Image[2].url}
-                classNameProp={classes.shippingImage}
-              />
-              <div className={`${classes.stream3} stream3`} />
-              <div
-                style={{ height: "1px", width: "80%", margin: "-10px auto" }}
-              >
-                <div
-                  style={{
-                    height: "0px",
-                    borderBottomWidth: "0px",
-                    borderTopWidth: "2px",
-                  }}
-                  className={`${classes.stream4} stream4`}
-                />
-              </div>
-              <div className={classes.streamDivider}>
-                <div className={`${classes.stream5} stream5`} />
-                <div className={`${classes.stream6} stream6`} />
-                <div className={`${classes.stream7} stream7`} />
-              </div>
-            </React.Fragment>
-          )}
-
-          <div className={classes.cards}>
-            {isLoading ? (
-              <div
-                className={`${loadingClasses.loading} ${classes.card}`}
-                style={{ height: 300 }}
-              />
-            ) : (
-              <div className={`${classes.card}`}>
-                <h1>{data.section2Content[2]}</h1>
-                <p>{data.section2Content[3]}</p>
-                <Link className={`${classes.button}`} href={"/contact"}>
-                  Learn more
-                </Link>
-              </div>
-            )}
-            {isLoading ? (
-              <div className={`${loadingClasses.loading} ${classes.card}`} />
-            ) : (
-              <div className={`${classes.card}`}>
-                <h1>{data.section2Content[4]}</h1>
-                <p>{data.section2Content[5]}</p>
-                <Link className={`${classes.button}`} href={"/contact"}>
-                  Learn more
-                </Link>
-              </div>
-            )}
-            {isLoading ? (
-              <div className={`${loadingClasses.loading} ${classes.card}`} />
-            ) : (
-              <div className={`${classes.card}`}>
-                <h1>{data.section2Content[6]}</h1>
-                <p>{data.section2Content[7]}</p>
-                <Link className={`${classes.button}`} href={"/contact"}>
-                  Learn more
-                </Link>
-              </div>
-            )}
-          </div>
-        </div> */}
-
         {isLoading ? (
           <div className={`${loadingClasses.loading}`} />
         ) : (
@@ -469,9 +387,6 @@ export default function Main() {
             </AnimationOnScroll>
           </React.Fragment>
         )}
-        {/* <AnimationOnScroll animateIn="animate__fadeIn">
-          <Footer />
-        </AnimationOnScroll> */}
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ import Loader from "../components/loader/Loader";
 import emailjs from "emailjs-com";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
-import { useTranslation } from "react-i18next";
 import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
@@ -41,7 +40,6 @@ export default function Careers() {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
-  const { t } = useTranslation();
 
   useEffect(() => {
     scroll.scrollToTop({

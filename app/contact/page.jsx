@@ -10,7 +10,6 @@ import emailjs from "emailjs-com";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useTranslation } from "react-i18next";
 import { AnimationOnScroll } from "react-animation-on-scroll";
 import { GraphQLClient, gql } from "graphql-request";
 import loadingClasses from "../components/loading/loading.module.css";
@@ -136,8 +135,6 @@ export default function Contact() {
   });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
-
-  const { t } = useTranslation();
 
   useEffect(() => {
     // scroll.scrollToTop({

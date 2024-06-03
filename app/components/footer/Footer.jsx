@@ -14,11 +14,9 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 
 import classes from "./footer.module.css";
 import { GraphQLClient, gql } from "graphql-request";
-import { useTranslation } from "react-i18next";
 
 export default function FooterComponent() {  
   // const [logo, setLogo] = useState("");
-  const { t } = useTranslation();
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 

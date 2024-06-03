@@ -8,7 +8,6 @@ import { AnimationOnScroll } from "react-animation-on-scroll";
 import classes from "./services.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from "react-i18next";
 import loadingClasses from "../components/loading/loading.module.css";
 
 import { GraphQLClient, gql } from "graphql-request";
@@ -17,7 +16,6 @@ export default function Services() {
   const [data, setData] = useState({});
   const [capacityContent, setCapacityContent] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { t } = useTranslation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
