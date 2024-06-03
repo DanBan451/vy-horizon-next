@@ -79,8 +79,8 @@
   display: none;
 }
 .description span {
-  /* background-color: rgb(146, 215, 255); */
-  background-color: #005aa8;
+  background-color: rgb(146, 215, 255);
+  /* background-color: #005aa8; */
   padding: 0px 5px;
 }
 
